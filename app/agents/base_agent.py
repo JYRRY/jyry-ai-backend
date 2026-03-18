@@ -1,5 +1,7 @@
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
-from typing import Any
+from typing import Any, Optional
 
 import anthropic
 
@@ -18,7 +20,7 @@ class BaseAgent(ABC):
     one connection pool reused across all agents and requests.
     """
 
-    _client: anthropic.AsyncAnthropic | None = None
+    _client: Optional[anthropic.AsyncAnthropic] = None
     model: str = settings.claude_model
     max_tokens: int = settings.max_tokens
 

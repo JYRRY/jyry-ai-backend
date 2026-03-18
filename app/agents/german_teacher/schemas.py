@@ -1,4 +1,6 @@
-from typing import Literal
+from __future__ import annotations
+
+from typing import Literal, Optional
 
 from pydantic import BaseModel, Field, computed_field
 
@@ -64,9 +66,9 @@ class GermanTeacherResponse(BaseModel):
     original_text: str
 
     # Only populated for correct_writing tasks
-    corrected_text: str | None = None
+    corrected_text: Optional[str] = None
     corrections: list[str] = []
-    score: GoetheScore | None = None
+    score: Optional[GoetheScore] = None
 
     # Always populated
     explanation: str = ""
