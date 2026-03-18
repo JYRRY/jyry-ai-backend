@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    anthropic_api_key: str
+    anthropic_api_key: str = ""
     claude_model: str = "claude-sonnet-4-6"
     max_tokens: int = 2048
     app_env: str = "development"
